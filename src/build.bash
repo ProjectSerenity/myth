@@ -34,4 +34,4 @@ esac
 hash go 2>/dev/null || { echo >&2 "Building Myth requires Go. See golang.org for more info."; exit 1; }
 
 # Run the build.
-GOPATH="$(cd .. && pwd)" go install cmd/myth
+GOPATH="$(cd .. && pwd)" go install ./cmd/myth
