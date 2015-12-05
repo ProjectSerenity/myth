@@ -15,9 +15,11 @@ fi
 # Test for Go
 hash go 2>/dev/null || { echo >&2 "Building Myth requires Go. See golang.org for more info."; exit 1; }
 
+GPATH="$(cd .. && pwd)"
+
 if [ $# -eq 0 ]; then
-    echo "Usage: ./test.bash <package>..."
-    exit 1
+    GOPATH=$GPATH go test ../...
+else
+    GOPATH=$GPATH go test $@
 fi
 
-GOPATH="$(cd .. && pwd)" go test $@
